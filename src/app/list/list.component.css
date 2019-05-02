@@ -1,0 +1,155 @@
+div,h2,h3,h4,p{margin:0; font-weight: 300}
+.blog_list a{text-decoration: none; color:#000}
+img,.closebtn{cursor: pointer;}
+.list_module{
+	font-family: helvetica !important;
+	font-weight: 300;
+	font-size: 14px;
+	background: #eee;
+	padding: 20px 0 0 0;
+	width: 950px;
+	max-width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin: 0 auto;
+	position: relative;
+	}
+.collapse_sec{
+	transition: all .5s ease-in-out;
+  transform-origin: left top;
+}
+.mid_section {
+    min-height: 1px;
+    background: #CDCDCD;
+}
+.headline h2, .headline span{float:left}
+.head p {clear:both}
+.add_new,.collapse_ico {
+    display: block;
+    position: absolute;
+	top: 34px;
+}
+.add_new{right: 70px;}
+.collapse_ico{ right: 30px;}
+.dialog_box {
+    width: 700px;
+    max-width: 80%;
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    background: #f4f4f4;
+    padding: 20px;
+	border: 1px solid #b2b2b2;
+}
+.dialog_box label,.form-control{float:left}
+.btn{
+	padding: 10px 30px;
+	font-size: 16px;
+	background: #48595A;
+	color: #fff;
+}
+.form-group{clear: both;
+	margin: 10px 0;
+	display: block;
+	overflow: auto;
+}
+.dialog_box label {
+    width: 20%;
+}
+.form-control{padding: 5px; border: 1px solid #9b9b9b;}
+p {
+    color: #818181;
+}
+.head {
+    padding: 0 20px 20px;
+}
+.count_newpost {
+    background: #D60000;
+    margin: 3px 0 0 10px;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 100%;
+}
+.blog_list{
+	width:100%; 
+	overflow:hidden;
+	background: #fff;
+	border-top: 1px solid #ccc;
+	line-height: 1.5;
+	position:relative
+}
+.blog_list a{padding:20px 0 20px; display:block; overflow:hidden}
+.icon,.contents,.action_buttons,.inner_div{
+	float:left;
+}
+p.blog_tagline {
+    color: #494949;
+}
+.inner_div{width:65%;position:relative}
+.inner_div.true {
+	border-left:4px solid #3876A7;
+}
+.blog_list section.show{width:230%}
+.dialog_box{display:none}
+.blog_list section.hide{
+	width:137%;
+	position:relative;
+	right:30%
+}
+.icon{
+	width:15%; 
+	padding-left:10px;
+	text-align:center
+}
+.contents{width:75%;padding-left:10px}
+.action_buttons{width:30%;height:120px}
+.blog_title{font-weight: 600}
+.thumb{border-radius: 360px;
+width: 100px; height: 100px;
+background: #ccc;
+border: 1px solid #ccc;}
+.date:before {
+    background: url("/assets/cal.png");
+    background-size: 20px;
+    content: "";
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    margin-right: 5px;
+	position: relative;
+	top: 3px;
+}
+.date{margin-top:10px}
+.ell_btn{
+	float: left;
+	display: block;
+	top: 50%;
+	position: absolute;
+	right: 18px;
+}
+.dialog_box .icon{width:20%}
+.dialog_box .contents{width:75%}
+.closebtn{position:absolute; right:20px; top :20px;}
+.btn_download, .btn_delete{position:relative}
+.btn_download img, .btn_delete img{position:absolute;top:38%;left:35%}
+.btn_download,.btn_delete{width: 50%;
+	height: 100%;
+	float: left;
+}
+.btn_download{
+	background:#01C853;
+}
+.btn_delete{
+	background:#D60000
+}
+footer{ text-align:center; padding:10px 0;}
+
+@media(max-width:570px){
+	.icon{display:none}
+	.contents{width:80%}
+	.dialog_box .contents{width:100%}
+	.blog_list section.show{width:170%}
+}
+@media(max-width:480px){
+	.dialog_box label,.form-control{clear:both; width:90%}
+}

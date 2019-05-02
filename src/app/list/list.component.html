@@ -1,0 +1,72 @@
+<main class='list_module'>
+	<header class='head'>
+		<div class='headline'><h2>List Name</h2><span class='count_newpost' [innerHtml]="new_count"></span></div>
+		<p>Total {{Listall.length}}</p>
+		<span class='add_new' (click)="showDialog()"><img src='assets/plusico.png' width="20px"></span>
+		<span class='collapse_ico' (click)="collapse = !collapse"><img src='assets/caret.png' width="20px"></span>
+	</header>
+	<section class='mid_section'>
+		<div class='collapse_sec' *ngIf="!collapse">
+			<div class='blog_list' *ngFor="let list of Listall|slice:0:showcount ; let i = index" >
+				<section [ngClass]="{show: list.id, hide: !list.id}" >
+				<div class='inner_div {{list.is_new}}' >
+					<a href='#' (click)="openBlogDetail(list)">
+						<div class='icon'>
+							<img src='{{list.img_url == "" ? "assets/thumb.png" : list.img_url}}' class="thumb" />
+						</div>
+						<div class='contents'>
+							<h4 class='blog_title'>{{list.title}} </h4>
+							<p class='blog_tagline'>{{list.tagline}}</p>
+							<p class='blog_desc'>{{ (list.desc.length > 84)? (list.desc | slice:0:84)+'..':(list.desc) }}</p>
+							<p class='date'>{{date | date:'EEE MMM d y'}}</p>
+						</div>
+					</a>
+					
+				</div>
+				<span class='ell_btn' (click)="list.id = !list.id"><img width='20px' src='assets/ellipses.png'></span>
+				<div class='action_buttons'>
+							<a class='btn_download' (click)="downloadFile(list)"><img src='assets/down_cl.png' width="30px" /></a>
+							<a class='btn_delete' (click)="removeList(list)"><img src='assets/bin.png' width="23px" /></a>
+				</div>
+				</section>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<span *ngIf="Listall.length > showcount"><a href='#'(click)='loadMore()'>Load more</a></span>
+	</footer>
+	
+
+<div class="dialog_box" id="dialogbox">
+<span class='closebtn' (click)="closeDialog()">&times;</span>
+	<form #blogform="ngForm" (ngSubmit)="onSubmit(blogform)"> 
+		<div class="form-group">
+		 <label for="title">Title : </label>
+		 <input type="text" class="form-control" name='title' id="title" ngModel  #title="ngModel" required />
+	   </div>
+	   <div class="form-group">
+		 <label for="tagline">Tagline : </label>
+		 <input type="text" class="form-control" name='tagline' id="tagline" ngModel  #tagline="ngModel" required />
+	   </div>
+	    <div class="form-group">
+		 <label for="desc">Description : </label>
+		 <textarea class="form-control" name='desc' id="desc" ngModel #desc="ngModel" required col="3" row="2"></textarea>
+	   </div>
+	   <button type='submit' name='submit_btn' class="btn">Submit</button>
+	</form>
+</div>
+<div class="dialog_box" id="blog-detail">
+	<span class='closebtn' (click)="closeDialog()">&times;</span>
+	<div id="detail_contents" >
+		<div class='icon'>
+			<img [src]='blog_img_url' class="thumb" />
+		</div>
+		<div class='contents'>
+			<h4 class='blog_title' [innerHtml]="blog_title"></h4>
+			<p class='blog_tagline' [innerHtml]="blog_tagline"></p>
+			<p class='blog_desc' [innerHtml]="blog_desc"></p>
+			<p class='date'>{{date | date:'EEE MMM d y'}}</p>
+		</div>				
+	</div>
+</div>
+</main>
